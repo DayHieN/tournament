@@ -39,7 +39,7 @@ class Team:
                 f"\nCoulnd't remove {player}. No such player exists."
             )
 
-    def add_players(self, player):
+    def add_players_to_team(self, player):
         try:
             self.viable_addition(player)
             self.players.append(player)
@@ -47,7 +47,7 @@ class Team:
         except MaxNumberException as error:
             print(f"\nError: {error}")
 
-    def remove_players(self, player):
+    def remove_players_from_team(self, player):
         try:
             self.viable_removal(player)
             self.players.remove(player)
@@ -75,7 +75,7 @@ class Tournament:
             return
         else:
             raise MaxNumberException(
-                f"Couldn't add {team.name} to {self.name}. Max number of teams in the tournamnent is {self.max_teams}."
+                f"Couldn't add {team.name} to {self.name}. Max number of teams in the tournament is {self.max_teams}."
             )
 
     def viable_removal(self, team):
@@ -94,7 +94,7 @@ class Tournament:
         except MaxNumberException as error:
             print(f"\nError: {error}")
 
-    def remove_teams_to_tournament(self, team):
+    def remove_teams_from_tournament(self, team):
         try:
             self.viable_removal(team)
             self.teams.remove(team)
