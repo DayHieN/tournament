@@ -36,7 +36,7 @@ class Team:
             return
         else:
             raise NotSuchElement(
-                f"\nCoulnd't remove {player}. No such player exists."
+                f"\nCouldn't remove {player}. No such player exists."
             )
 
     def add_players_to_team(self, player):
@@ -83,7 +83,7 @@ class Tournament:
             return
         else:
             raise NotSuchElement(
-                f"\nCoulnd't remove {team}. No such team exists."
+                f"\nCouldn't remove {team}. No such team exists."
             )
 
     def add_teams_to_tournament(self, team):
