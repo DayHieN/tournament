@@ -18,7 +18,7 @@ for player in players_instances:
         team_name = f"Team{len(teams) + 1}"
         current_team = Team(team_name)
         teams.append(current_team)
-    current_team.add_players(player)
+    current_team.add_players_to_team(player)
 
 
 pajaritos_tournament = Tournament('Pajaritos', 8)
@@ -26,4 +26,5 @@ pajaritos_tournament = Tournament('Pajaritos', 8)
 for team in teams:
     pajaritos_tournament.add_teams_to_tournament(team)
 
-pajaritos_tournament.show_tournament_info()
+pajaritos_tournament.create_matches()
+

@@ -1,3 +1,6 @@
+import random
+
+# Exceptions
 
 
 class MaxNumberException(Exception):
@@ -6,6 +9,8 @@ class MaxNumberException(Exception):
 
 class NotSuchElement(Exception):
     pass
+
+# Classes
 
 
 class Player:
@@ -36,7 +41,7 @@ class Team:
             return
         else:
             raise NotSuchElement(
-                f"\nCouldn't remove {player}. No such player exists."
+                f"\nCouldn't remove {player}. No such player exists in {self.name}."
             )
 
     def add_players_to_team(self, player):
@@ -83,7 +88,7 @@ class Tournament:
             return
         else:
             raise NotSuchElement(
-                f"\nCouldn't remove {team}. No such team exists."
+                f"\nCouldn't remove {team}. No such team exists in {self.name}."
             )
 
     def add_teams_to_tournament(self, team):
@@ -106,3 +111,14 @@ class Tournament:
         print(f"{self.name} - {self.max_teams} teams\nTeams:")
         for team in self.teams:
             print(f"{team.name}\n Players:{team.show_team_info()}")
+
+    def create_matches(self):
+        matches = []
+        if len(self.teams) == self.max_teams:
+            random.shuffle(self.teams)
+            for i in range(0, len(self.teams), 2):
+                if i+1 < len(self.teams):
+                    match = (self.teams[i], self.teams[i+1])
+                    matches.append(match)
+        for match in matches:
+            print(f"\n{match[0].name} vs {match[1].name}")
