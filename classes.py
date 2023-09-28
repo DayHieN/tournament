@@ -1,8 +1,7 @@
 import random
 
+
 # Exceptions
-
-
 class MaxNumberException(Exception):
     pass
 
@@ -10,9 +9,8 @@ class MaxNumberException(Exception):
 class NotSuchElement(Exception):
     pass
 
+
 # Classes
-
-
 class Player:
     def __init__(self, name, age):
         self.name = name
@@ -120,5 +118,29 @@ class Tournament:
                 if i+1 < len(self.teams):
                     match = (self.teams[i], self.teams[i+1])
                     matches.append(match)
-        for match in matches:
-            print(f"\n{match[0].name} vs {match[1].name}")
+            print(f"\n{self.name} tournament brackets:")
+            for match in matches:
+                print(f" {match[0].name} vs {match[1].name}")
+            return matches
+
+    def play_matches(self, matches):
+        self.matches = matches
+        self.winners = []
+        print("Matches begin:")
+        for match in self.matches:
+            winner = None
+            print(f"\n {match[0].name} vs {match[1].name}")
+            while winner != '1' and winner != '2':
+                winner = input(
+                    f"\n Who won? Enter '1' for {match[0].name} or '2' for {match[1].name}\n")
+                if winner == '1':
+                    print(f"{match[0].name} wins!")
+                    self.winners.append(match[0])
+                    break
+                elif winner == '2':
+                    print(f"{match[1].name} wins!")
+                    self.winners.append(match[1])
+                    break
+        print("\nThis are the winners in the firsts matches:")
+        for winner in self.winners:
+            print(f" {winner.name}")

@@ -1,4 +1,5 @@
 import tkinter as tk
+from classes import *
 
 
 class Window:
